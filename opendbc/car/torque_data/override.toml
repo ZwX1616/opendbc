@@ -95,6 +95,7 @@ legend = ["LAT_ACCEL_FACTOR", "MAX_LAT_ACCEL_MEASURED", "FRICTION"]
 
 # Dashcam or fallback configured as ideal car
 "MOCK" = [10.0, 10, 0.0]
+"PORSCHE_911_997_2_CARRERA_S_COUPE_RWD" = [10.0, 10, 0.0]
 
 # Manually checked
 "HONDA_CIVIC_2022" = [2.5, 1.2, 0.15]
