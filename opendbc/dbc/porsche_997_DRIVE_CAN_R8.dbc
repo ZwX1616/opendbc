@@ -88,7 +88,7 @@ BO_ 1299 DME5: 5 Vector__XXX
  SG_ Immoblizer_Challenge : 0|40@1+ (1,0) [0|1099511627775] "" Vector__XXX
 
 BO_ 776 DRIVEMODE: 8 Vector__XXX
- SG_ Outside_Temp_Unfiltered : 32|8@1+ (0.5,-50) [-50|77.5] "°C" Vector__XXX
+ SG_ Outside_Temp_Unfiltered : 32|8@1+ (0.5,-50) [-50|77.5] "degC" Vector__XXX
  SG_ High_Beam_Status : 14|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ Reverse_Light_Status : 12|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Low_Beam_Status : 11|1@1+ (1,0) [0|0] "" Vector__XXX
@@ -226,7 +226,7 @@ BO_ 1536 KLIMA: 8 KLIMA
  SG_ HVAC_Fan_Speed_Increase : 0|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ KLIMA_B7 : 56|8@1+ (1,0) [0|0] ""  DIAG
  SG_ KLIMA_B6 : 48|8@1+ (0.5,-50) [-50|77.5] ""  DIAG
- SG_ KLIMA_B3 : 24|8@1+ (0.5,-50) [0|0] "°C"  DIAG
+ SG_ KLIMA_B3 : 24|8@1+ (0.5,-50) [0|0] "degC"  DIAG
  SG_ KLIMA_B1b0_B1b3 : 8|4@1+ (1,0) [0|0] ""  DIAG
  SG_ KLIMA_RefrigerantPressure : 16|8@1+ (0.2,0) [0|51] "Bar"  DIAG
  SG_ KLIMA_RearDefrostButtonState : 12|1@1+ (1,0) [0|0] ""  DIAG
@@ -253,11 +253,11 @@ BO_ 528 SCCM2: 4 SCCM
  SG_ SCCM_cruiseAway : 11|1@1+ (1,0) [0|0] ""  DIAG
 
 BO_ 1089 DME4: 8 DME
- SG_ Fuel_Consumption_2 : 24|8@1+ (1,0) [0|255] "µl" Vector__XXX
+ SG_ Fuel_Consumption_2 : 24|8@1+ (1,0) [0|255] "microliter" Vector__XXX
  SG_ Boost_Pressure : 32|8@1+ (0.01,0) [0|2.55] "bar" Vector__XXX
- SG_ Fuel_Consumption_1 : 16|8@1+ (1,0) [0|255] "µl" Vector__XXX
+ SG_ Fuel_Consumption_1 : 16|8@1+ (1,0) [0|255] "microliter" Vector__XXX
  SG_ DME4_EngineComp_TempSensFaill : 63|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ DME4_Engine_Compartment_Temp : 57|6@1- (1,-48) [0|0] "°C" Vector__XXX
+ SG_ DME4_Engine_Compartment_Temp : 57|6@1- (1,-48) [0|0] "degC" Vector__XXX
  SG_ DME4_Coolant_Level_Switch : 56|1@1- (1,0) [0|0] "" Vector__XXX
  SG_ Oil_Pressure : 48|8@1+ (0.04,0) [0|10.2] "bar" Vector__XXX
  SG_ DME_RadFanSpeedReq : 8|7@1+ (1,0) [0|127] "%"  DIAG
@@ -281,7 +281,7 @@ BO_ 582 DME3: 8 DME
  SG_ Ambient_Pressure_Error : 7|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Sport_Mode_Error : 6|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Ignition_Angle m3 : 56|8@1+ (0.75,-96) [-96|95.25] "" Vector__XXX
- SG_ ECT m2 : 56|8@1+ (1,-40) [0|255] "°C" Vector__XXX
+ SG_ ECT m2 : 56|8@1+ (1,-40) [0|255] "degC" Vector__XXX
  SG_ ABS_TPS m1 : 56|8@1+ (0.39215,0) [0|99.99825] "%" Vector__XXX
  SG_ Calc_LV m0 : 56|8@1+ (0.3937,0) [0|0] "%" Vector__XXX
  SG_ GB_Trq_Actual : 32|8@1+ (0.39,0) [0|99.45] "%" Vector__XXX
@@ -312,7 +312,7 @@ BO_ 581 DME2: 8 DME
  SG_ Indexed_Target_Torque : 56|8@1+ (0.39215,0) [0|99.99825] "%"  DIAG
  SG_ Count1 M : 6|2@1+ (1,0) [0|0] ""  DIAG
  SG_ Moment_Base : 24|8@1+ (0.39,0) [0|99.45] "%"  DIAG
- SG_ CoolantTemp : 8|8@1+ (0.75,-48) [-48|143.25] "°C"  DIAG
+ SG_ CoolantTemp : 8|8@1+ (0.75,-48) [-48|143.25] "degC"  DIAG
 
 
 
@@ -323,7 +323,7 @@ CM_ SG_ 1641 Odometer_Total "Odometer_Total";
 CM_ SG_ 578 HFM_Error "Original = HFM-Fehler";
 CM_ SG_ 578 GE_Intervention_Status "Original = Quittung GE-Eingriff";
 CM_ SG_ 578 Brake_Intervention_Status "Original = Status Brems-Eingriff";
-CM_ SG_ 578 Error_Msg_Brake1 "Original = Fehler Botschaftszähler BREMSE_1";
+CM_ SG_ 578 Error_Msg_Brake1 "Original = Fehler Botschaftszahler BREMSE_1";
 CM_ SG_ 578 Interlock_Switch "Original = Schalter Interlock";
 CM_ SG_ 578 Idle_Increase "Original = Leerlaufanhebung";
 CM_ SG_ 578 Accel_PDL_Error_Status "Original = Fehlerstatus Fahrpedal";
@@ -355,7 +355,7 @@ CM_ SG_ 582 DME_KickdownActive "Kickdownschalter";
 CM_ SG_ 582 DME_EngagedGear "<not verified> - enumeration unknown";
 CM_ SG_ 582 DME_CompressorRunning "signal is received by the climate control module, in PIWIS this signal is shown as: CAN compressor shutdown. setting this bit as 0=yes (compressor is not running), 1=no (compressor is running)";
 CM_ SG_ 582 DME_CompressorFault "unclear who recieved this signal, its doesnt trigger an obvious response from climate control diagnostic parameters available in PIWIS";
-CM_ SG_ 581 Moment_Max_Internal "Original = Inneres max. mögliches Moment";
+CM_ SG_ 581 Moment_Max_Internal "Original = Inneres max. mogliches Moment";
 CM_ SG_ 581 Moment_Reduce "Original = reduzierbares Moment";
 CM_ SG_ 581 MUL_Code_1 "Engine Coding";
 CM_ SG_ 581 Moment_Base "Original = Basis-Moment";
