@@ -8,13 +8,13 @@ class CarState(CarStateBase):
   def __init__(self, CP):
     super().__init__(CP)
 
-    self.tsr_stock_values: dict = {}
+    self.cam_stock_values: dict = {}
 
   def update(self, can_parsers) -> structs.CarState:
     cp_cam = can_parsers[Bus.cam]
     ret = structs.CarState()
 
-    self.tsr_stock_values = cp_cam.vl["TSR"]
+    self.cam_stock_values = cp_cam.vl["FRONT_CAMERA"]
 
     return ret
 

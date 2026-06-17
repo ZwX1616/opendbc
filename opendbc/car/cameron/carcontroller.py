@@ -11,14 +11,15 @@ class CarController(CarControllerBase):
   def update(self, CC, CS, now_nanos):
     can_sends = []
 
-    if CS.tsr_stock_values:
-      can_sends.append(create_tsr_suppress(self.packer, CS.tsr_stock_values))
+    if CS.cam_stock_values:
+      can_sends.append(ldw_tsr_suppress(self.packer, CS.cam_stock_values))
 
     self.frame += 1
     return CC.actuators, can_sends
 
 
-def create_tsr_suppress(packer, stock_values):
+def ldw_tsr_suppress(packer, stock_values):
   values = {sig: int(val) for sig, val in stock_values.items()}
-  values["TSR_B3"] &= 0xF7
-  return packer.make_can_msg("TSR", 0, values)
+  values["B3"] &= 0xF7
+  values["B5"] &= 0x3F
+  return packer.make_can_msg("FRONT_CAMERA", 0, values)
