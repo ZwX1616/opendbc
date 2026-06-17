@@ -20,9 +20,13 @@ class CarController(CarControllerBase):
 
 def ldw_tsr_suppress(packer, stock_values):
   values = {sig: int(val) for sig, val in stock_values.items()}
+
+  values["B1_LOW"] |= 0x06 # directionless ldw event? unclear
   values["LL_CROSSING_LEFT"] = 0
   values["LL_CROSSING_RIGHT"] = 0
   values["LL_DETECTED_LEFT"] = 0
   values["LL_DETECTED_RIGHT"] = 0
+
   values["B3"] &= 0xF7 # tsr, unclear
+
   return packer.make_can_msg("FRONT_CAMERA", 0, values)
