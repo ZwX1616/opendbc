@@ -12,7 +12,6 @@ static safety_config cameron_init(uint16_t param) {
   static const CanMsg CAMERON_TX_MSGS[] = {
     {0x45, 0, 8, .check_relay = true},
     {0xB5, 0, 8, .check_relay = true},
-    {0x210, 0, 8, .check_relay = true},
   };
 
   SAFETY_UNUSED(param);
