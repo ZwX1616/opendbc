@@ -10,6 +10,7 @@ class CarState(CarStateBase):
 
     self.cam_disp_values: dict = {}
     self.cam_tsr_values: dict = {}
+    self.cam_ldw_values: dict = {}
 
   def update(self, can_parsers) -> structs.CarState:
     cp_cam = can_parsers[Bus.cam]
@@ -17,6 +18,7 @@ class CarState(CarStateBase):
 
     self.cam_disp_values = cp_cam.vl["FRONT_CAMERA_DISP"]
     self.cam_tsr_values = cp_cam.vl["FRONT_CAMERA_TSR"]
+    self.cam_ldw_values = cp_cam.vl["FRONT_CAMERA_LDW"]   # 0x210; carries LDW crossing (byte3.0) - block-test if camera-sourced
 
     return ret
 
