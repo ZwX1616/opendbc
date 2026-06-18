@@ -11,27 +11,28 @@ class CarController(CarControllerBase):
   def update(self, CC, CS, now_nanos):
     can_sends = []
 
-    if CS.cam_stock_values:
-      can_sends.append(ldw_tsr_suppress(self.packer, CS.cam_stock_values))
+    if CS.cam_disp_values and CS.cam_tsr_values:
+      can_sends += ldw_tsr_suppress(self.packer, CS.cam_disp_values, CS.cam_tsr_values)
 
     self.frame += 1
     return CC.actuators, can_sends
 
 
-def ldw_tsr_suppress(packer, stock_values):
-  values = {sig: int(val) for sig, val in stock_values.items()}
+def ldw_tsr_suppress(packer, cam_disp_values, cam_tsr_values):
+  disp_values = {sig: int(val) for sig, val in cam_disp_values.items()}
+  disp_values["SPEED_LIMIT"] = 145 # kph
+  disp_values["B1_LOW"] |= 0x06 # directionless ldw event? unclear
+  disp_values["LL_CROSSING_LEFT"] = 0
+  disp_values["LL_CROSSING_RIGHT"] = 0
+  disp_values["LL_DETECTED_LEFT"] = 0
+  disp_values["LL_DETECTED_RIGHT"] = 0
+  disp_values["B2"] &= 0xBB # bits 2+6 laneish, unclear
+  # disp_values["B3"] &= 0xF7
+  # disp_values["B4"] &= 0xF7
+  # disp_values["B6"] &= 0xFA
 
-  values["SPEED_LIMIT"] = 145 # 90mph
+  tsr_values = {sig: int(val) for sig, val in cam_tsr_values.items()}
+  tsr_values["SPEED_LIMIT"] = disp_values["SPEED_LIMIT"]
 
-  values["B1_LOW"] |= 0x06 # directionless ldw event? unclear
-  values["LL_CROSSING_LEFT"] = 0
-  values["LL_CROSSING_RIGHT"] = 0
-  values["LL_DETECTED_LEFT"] = 0
-  values["LL_DETECTED_RIGHT"] = 0
-  values["B2"] &= 0xBB # bits 2+6 laneish, unclear
-
-  # values["B3"] &= 0xF7
-  # values["B4"] &= 0xF7
-  # values["B6"] &= 0xFA
-
-  return packer.make_can_msg("FRONT_CAMERA", 0, values)
+  return [packer.make_can_msg("FRONT_CAMERA_DISP", 0, disp_values),
+          packer.make_can_msg("FRONT_CAMERA_TSR", 0, tsr_values)]
