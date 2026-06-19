@@ -82,11 +82,21 @@ BO_ 80 VEHICLE_SPEED: 8 XXX
  SG_ B6 : 48|8@1+ (1,0) [0|255] "" XXX
  SG_ B7 : 56|8@1+ (1,0) [0|255] "" XXX
 
-BO_ 144 DRIVER_INPUTS: 8 XXX
- SG_ B0_FLAG : 7|1@1+ (1,0) [0|1] "" XXX
+BO_ 144 DRIVER_INPUT_1: 8 XXX
+ SG_ B0_HI : 7|1@1+ (1,0) [0|1] "" XXX
  SG_ STEERING_ANGLE : 6|15@0- (0.0625,0) [-1024|1024] "deg" XXX
- SG_ B2 : 16|8@1+ (1,0) [0|255] "" XXX
- SG_ B3 : 24|8@1+ (1,0) [0|255] "" XXX
+ SG_ B2_HI : 22|2@1+ (1,0) [0|3] "" XXX
+ SG_ STEERING_RATE : 21|14@0- (0.5,0) [-4096|4096] "deg/s" XXX
  SG_ B4 : 32|8@1+ (1,0) [0|255] "" XXX
  SG_ B5 : 40|8@1+ (1,0) [0|255] "" XXX
  SG_ THROTTLE_POSITION : 55|16@0+ (0.00390625,-128) [0|100] "%" XXX
+
+BO_ 85 DRIVER_INPUT_2: 8 XXX
+ SG_ B0 : 0|8@1+ (1,0) [0|255] "" XXX
+ SG_ B1 : 8|8@1+ (1,0) [0|255] "" XXX
+ SG_ B2 : 16|8@1+ (1,0) [0|255] "" XXX
+ SG_ B3 : 24|8@1+ (1,0) [0|255] "" XXX
+ SG_ B4_HI : 39|1@1+ (1,0) [0|1] "" XXX
+ SG_ STEERING_ANGLE : 38|15@0- (0.0625,0) [-1024|1024] "deg" XXX
+ SG_ B6 : 48|8@1+ (1,0) [0|255] "" XXX
+ SG_ BRAKE_POSITION : 56|8@1+ (1,0) [0|255] "" XXX
