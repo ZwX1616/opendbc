@@ -39,4 +39,5 @@ def cam_alert_suppress(packer, cam_alert_values):
   alert_values = {sig: int(val) for sig, val in cam_alert_values.items()}
   alert_values["TSR_VISUAL"] = 0
   alert_values["TSR_AUDIBLE"] = 0
+  alert_values["LDW_AUDIBLE"] = 0
   return packer.make_can_msg("FRONT_CAMERA_ALERT", 0, alert_values)
