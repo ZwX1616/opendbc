@@ -7,6 +7,7 @@ class CarController(CarControllerBase):
   def __init__(self, dbc_names, CP):
     super().__init__(dbc_names, CP)
     self.packer = CANPacker(dbc_names[Bus.pt])
+    self.last_alert_ctr = -1
 
   def update(self, CC, CS, now_nanos):
     can_sends = []
@@ -15,7 +16,10 @@ class CarController(CarControllerBase):
       can_sends.append(cam_disp_suppress(self.packer, CS.cam_disp_values))
 
     if CS.cam_alert_values:
-      can_sends.append(cam_alert_suppress(self.packer, CS.cam_alert_values))
+      alert_ctr = int(CS.cam_alert_values["B1"]) & 0x0F
+      if alert_ctr != self.last_alert_ctr:
+        self.last_alert_ctr = alert_ctr
+        can_sends.append(cam_alert_suppress(self.packer, CS.cam_alert_values))
 
     self.frame += 1
     return CC.actuators, can_sends
