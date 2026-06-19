@@ -35,7 +35,7 @@ BS_:
 BU_: XXX
 
 BO_ 69 FRONT_CAMERA_DISP: 8 XXX
- SG_ SPEED_LIMIT : 0|8@1+ (1,0) [0|255] "kph" XXX
+ SG_ SPEED_LIMIT : 0|8@1+ (1,0) [0|255] "mph" XXX
  SG_ B1_LOW : 8|4@1+ (1,0) [0|15] "" XXX
  SG_ LL_CROSSING_LEFT : 12|1@1+ (1,0) [0|1] "" XXX
  SG_ LL_CROSSING_RIGHT : 13|1@1+ (1,0) [0|1] "" XXX
@@ -49,11 +49,13 @@ BO_ 69 FRONT_CAMERA_DISP: 8 XXX
  SG_ B6 : 48|8@1+ (1,0) [0|255] "" XXX
  SG_ B7 : 56|8@1+ (1,0) [0|255] "" XXX
 
-BO_ 181 FRONT_CAMERA_TSR: 8 XXX
+BO_ 32 FRONT_CAMERA_ALERT: 8 XXX
  SG_ B0 : 0|8@1+ (1,0) [0|255] "" XXX
  SG_ B1 : 8|8@1+ (1,0) [0|255] "" XXX
  SG_ B2 : 16|8@1+ (1,0) [0|255] "" XXX
- SG_ SPEED_LIMIT : 24|8@1+ (1,0) [0|255] "kph" XXX
+ SG_ B3_LO : 24|6@1+ (1,0) [0|63] "" XXX
+ SG_ TSR_VISUAL : 30|1@1+ (1,0) [0|1] "" XXX
+ SG_ TSR_AUDIBLE : 31|1@1+ (1,0) [0|1] "" XXX
  SG_ B4 : 32|8@1+ (1,0) [0|255] "" XXX
  SG_ B5 : 40|8@1+ (1,0) [0|255] "" XXX
  SG_ B6 : 48|8@1+ (1,0) [0|255] "" XXX
