@@ -12,8 +12,15 @@ class CarState(CarStateBase):
     self.cam_alert_values: dict = {}
 
   def update(self, can_parsers) -> structs.CarState:
+    cp_pt = can_parsers[Bus.pt]
     cp_cam = can_parsers[Bus.cam]
     ret = structs.CarState()
+
+    ret.vEgo = cp_pt.vl["VEHICLE_SPEED"]["SPEED"] / 3.6
+    ret.standstill = ret.vEgo < 0.1
+
+    ret.gas = cp_pt.vl["THROTTLE_POSITION"]["TPS"]
+    ret.gasPressed = ret.gas > 0.25 # %
 
     self.cam_disp_values = cp_cam.vl["FRONT_CAMERA_DISP"]
     self.cam_alert_values = cp_cam.vl["FRONT_CAMERA_ALERT"]
