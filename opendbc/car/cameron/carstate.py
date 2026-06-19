@@ -19,8 +19,10 @@ class CarState(CarStateBase):
     ret.vEgo = cp_pt.vl["VEHICLE_SPEED"]["SPEED"] / 3.6
     ret.standstill = ret.vEgo < 0.1
 
-    ret.gas = cp_pt.vl["THROTTLE_POSITION"]["TPS"]
+    ret.gas = cp_pt.vl["DRIVER_INPUTS"]["THROTTLE_POSITION"]
     ret.gasPressed = ret.gas > 0.25 # %
+
+    ret.steeringAngleDeg = cp_pt.vl["DRIVER_INPUTS"]["STEERING_ANGLE"]
 
     self.cam_disp_values = cp_cam.vl["FRONT_CAMERA_DISP"]
     self.cam_alert_values = cp_cam.vl["FRONT_CAMERA_ALERT"]
