@@ -10,6 +10,7 @@ class CarState(CarStateBase):
 
     self.cam_disp_values: dict = {}
     self.cam_alert_values: dict = {}
+    self.cam_ldw_values: dict = {}
 
   def update(self, can_parsers) -> structs.CarState:
     cp_pt = can_parsers[Bus.pt]
@@ -27,6 +28,7 @@ class CarState(CarStateBase):
 
     self.cam_disp_values = cp_cam.vl["FRONT_CAMERA_DISP"]
     self.cam_alert_values = cp_cam.vl["FRONT_CAMERA_ALERT"]
+    self.cam_ldw_values = cp_cam.vl["FRONT_CAMERA_LDW"]
 
     return ret
 
